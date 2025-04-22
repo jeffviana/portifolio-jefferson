@@ -4,24 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Currículo - Jefferson Silva Viana</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-ywz2XjhdVC7UMn+9K8XL7Nczr5H0TmsOVOr7eUdr3vWZjzTXpKk3Mg4E23KmymxkbW0qaXPTlZkR6uWGC30WAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    :root {
+      --bg-light: #eaf4ff;
+      --bg-dark: #1e1e2f;
+      --text-light: #333;
+      --text-dark: #f0f0f0;
+      --accent: #2563eb;
+      --accent-dark: #60a5fa;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      background-color: var(--bg-light);
+      color: var(--text-light);
       margin: 0;
       padding: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
     }
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    body.dark-mode .container {
+      background: #2a2a3f;
     }
     h1, h2, h3 {
-      color: #0077cc;
+      transition: color 0.3s;
+    }
+    h1 {
+      color: #1e3a8a;
+      text-align: center;
+    }
+    body.dark-mode h1 {
+      color: var(--accent-dark);
+    }
+    h2 {
+      color: var(--accent);
+      border-bottom: 2px solid #c7d2fe;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+    body.dark-mode h2 {
+      color: var(--accent-dark);
+      border-color: #3b82f6;
+    }
+    h3 {
+      color: #1d4ed8;
+      margin-top: 20px;
+    }
+    body.dark-mode h3 {
+      color: #93c5fd;
     }
     ul {
       padding-left: 20px;
@@ -33,51 +75,90 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      margin-top: 20px;
     }
     .info p {
-      margin: 5px 0;
+      margin: 8px 0;
       flex: 1 1 45%;
+    }
+    a {
+      color: #1e40af;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    i {
+      margin-right: 8px;
+      color: var(--accent);
+    }
+    .btn-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-area button {
+      padding: 10px 16px;
+      margin: 8px 0;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+      background-color: var(--accent);
+      transition: background-color 0.3s;
+    }
+    .btn-area button:hover {
+      background-color: #1e40af;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    
-    <h1>Jefferson Silva Viana</h1>
-    <div class="info">
-      <p><strong>Endereço:</strong> Rua Hugo Pollman, 300, Guarulhos - SP</p>
-      <p><strong>Nacionalidade:</strong> Brasileiro</p>
-      <p><strong>Telefone:</strong> (11) 95083-7728 / (11) 4372-2680</p>
-      <p><strong>Idade:</strong> 33 anos</p>
-      <p><strong>Email:</strong> viana_jefferson@hotmail.com / jeff.v.souza@gmail.com</p>
-      <p><strong>Estado Civil:</strong> Casado</p>
-      <p><strong>Filhos:</strong> 4</p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jeffersonviana1/" target="_blank">linkedin.com/in/jeffersonviana1</a></p>
+    <div class="btn-area">
+      <button onclick="toggleDarkMode()"><i class="fas fa-moon"></i> Modo Escuro</button>
+      <button onclick="window.print()"><i class="fas fa-file-pdf"></i> Baixar em PDF</button>
     </div>
-  </div>
+
+    <h1><i class="fas fa-user-circle"></i> Jefferson Silva Viana</h1>
+    <div class="info">
+      <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> Rua Hugo Pollman, 300, Guarulhos - SP</p>
+      <p><i class="fas fa-flag"></i> <strong>Nacionalidade:</strong> Brasileiro</p>
+      <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (11) 95083-7728 / (11) 4372-2680</p>
+      <p><i class="fas fa-birthday-cake"></i> <strong>Idade:</strong> 33 anos</p>
+      <p><i class="fas fa-envelope"></i> <strong>Email:</strong> viana_jefferson@hotmail.com / jeff.v.souza@gmail.com</p>
+      <p><i class="fas fa-heart"></i> <strong>Estado Civil:</strong> Casado</p>
+      <p><i class="fas fa-child"></i> <strong>Filhos:</strong> 4</p>
+      <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jeffersonviana1/" target="_blank">linkedin.com/in/jeffersonviana1</a></p>
+    </div>
+
     <div class="section">
-      <h2>Objetivo</h2>
+      <h2><i class="fas fa-briefcase"></i> Objetivo</h2>
       <p>Analista de Suporte</p>
     </div>
-   <div class="section">
-      <h2>Pretensão Salarial</h2>
+
+    <div class="section">
+      <h2><i class="fas fa-dollar-sign"></i> Pretensão Salarial</h2>
       <p>A combinar</p>
     </div>
+
     <div class="section">
-      <h2>Resumo</h2>
+      <h2><i class="fas fa-user"></i> Resumo</h2>
       <p>Profissional experiente em Tecnologia da Informação com foco em suporte técnico, segurança cibernética e infraestrutura de TI. Forte habilidade na gestão de incidentes, atendimento aos usuários e aplicação de políticas de segurança voltadas para proteção de dados. Experiência em diagnóstico e solução de problemas de hardware, software e redes, além de implementação de melhorias nos processos de TI. Certificado em fundamentos de inteligência artificial (AI-900) e metodologias ágeis (Scrum Foundation), com habilidades complementares em tecnologias de nuvem e monitoramento de sistemas. Busco contribuir para a segurança, eficiência e inovação dos ambientes de TI.</p>
     </div>
 
     <div class="section">
-      <h2>Formação Acadêmica</h2>
-      <p><strong>Pós Graduação em Datacenter e Cloud Computing</strong> Universidade Anhanguera Educacional (2023–2024)</p>
-      <p><strong>Pós-Graduação em Cybersecurity e Cybercrimes</strong> Universidade Anhanguera Educacional (2022–2023)</p>
-      <p><strong>Análise e Desenvolvimento de Sistemas</strong> Uninove (2019–2020)</p>
-      <p><strong>Graduação em Gestão de Tecnologia da Informação</strong> Universidade Cruzeiro do Sul (2014–2017)</p>
+      <h2><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
+      <p><strong>Pós Graduação em Datacenter e Cloud Computing</strong> - Universidade Anhanguera Educacional (2023–2024)</p>
+      <p><strong>Pós-Graduação em Cybersecurity e Cybercrimes</strong> - Universidade Anhanguera Educacional (2022–2023)</p>
+      <p><strong>Análise e Desenvolvimento de Sistemas</strong> - Uninove (2019–2020)</p>
+      <p><strong>Graduação em Gestão de Tecnologia da Informação</strong> - Universidade Cruzeiro do Sul (2014–2017)</p>
     </div>
 
     <div class="section">
-      <h2>Cursos Complementares</h2>
+      <h2><i class="fas fa-certificate"></i> Cursos Complementares</h2>
       <ul>
         <li>Scrum Foundation Certified</li>
         <li>Certificação Microsoft Certified: Azure AI Fundamentals (AI-900)</li>
@@ -91,7 +172,7 @@
     </div>
 
     <div class="section">
-      <h2>Qualificações e Conhecimentos</h2>
+      <h2><i class="fas fa-tools"></i> Qualificações e Conhecimentos</h2>
       <ul>
         <li><strong>Administração de servidores Windows:</strong> AD, DNS, DHCP, GPO</li>
         <li><strong>Administração de servidores Linux:</strong> Ubuntu, CentOS, Debian</li>
@@ -106,7 +187,7 @@
     </div>
 
     <div class="section">
-      <h2>Habilidades</h2>
+      <h2><i class="fas fa-check-circle"></i> Habilidades</h2>
       <ul>
         <li>Bom relacionamento interpessoal</li>
         <li>Facilidade de comunicação</li>
@@ -118,28 +199,21 @@
     </div>
 
     <div class="section">
-      <h2>Experiência Profissional</h2>
+      <h2><i class="fas fa-building"></i> Experiência Profissional</h2>
       <h3>Arco Educação (07/2024 – Atual)</h3>
-      <p><strong>Analista de Suporte de TI Pleno | Ponto Focal:</strong> 
-        Gestão de equipe de suporte técnico, responsável por 60% gestão e 40% técnico. 
-        Atuação no onboarding e offboarding de equipamentos, suporte remoto, melhorias de processos e suporte em Centro de Distribuição com alto volume de demandas sazonais.</p>
+      <p><strong>Analista de Suporte de TI Pleno | Ponto Focal:</strong> Gestão de equipe de suporte técnico, responsável por 60% gestão e 40% técnico. Atuação no onboarding e offboarding de equipamentos, suporte remoto, melhorias de processos e suporte em Centro de Distribuição com alto volume de demandas sazonais.</p>
 
       <h3>BP - A Beneficência Portuguesa de São Paulo (10/2018 – 06/2024)</h3>
-      <p><strong>Analista de Suporte de TI Sênior:</strong> 
-        Gerenciamento de incidentes de baixa, média e alta prioridade usando TopDesk;
-        Administração de usuários em Active Directory (AD), políticas de grupo (GPO) e contas de e-mail (Office 365 e Exchange);
-        Deploy de sistemas operacionais via WDS e Microsoft Deployment Toolkit;
-        Monitoramento de redes e infraestrutura utilizando Grafana;
-        Colaboração com equipes de negócios, fornecedores e datacenter para suporte avançado;</p>
+      <p><strong>Analista de Suporte de TI Sênior:</strong> Gerenciamento de incidentes de baixa, média e alta prioridade usando TopDesk; Administração de usuários em Active Directory (AD), políticas de grupo (GPO) e contas de e-mail (Office 365 e Exchange); Deploy de sistemas operacionais via WDS e Microsoft Deployment Toolkit; Monitoramento de redes e infraestrutura utilizando Grafana; Colaboração com equipes de negócios, fornecedores e datacenter para suporte avançado.</p>
 
       <h3>Auto Vidroshop LTDA (10/2017 - 09/2018)</h3>
-      <p><strong>Analista de Suporte Técnico:</strong> 
-        Atendimento e manutenção de infraestrutura de TI, banco de dados, helpdesk, telefonia, etc.</p>
-    </div>
+      <p><strong>Analista de Suporte Técnico:</strong> Atendimento e manutenção de infraestrutura de TI, banco de dados, helpdesk, telefonia, etc.</p>
+  </div>
 
-      <script>
-    // Script para futuras interações ou animações
-    console.log('Currículo carregado com sucesso.');
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
   </script>
 </body>
 </html>
